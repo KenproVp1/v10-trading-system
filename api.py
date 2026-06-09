@@ -1,5 +1,6 @@
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import RedirectResponse
 from model import predict
 from alert import send_alert
 import logging
@@ -17,6 +18,16 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+@app.get("/")
+async def root():
+    """Root endpoint - redirect to health or docs"""
+    return RedirectResponse(url="/docs")
+
+@app.get("/health")
+async def health():
+    """Health check endpoint."""
+    return {"status": "healthy", "service": "V10 Trading API"}
 
 @app.get("/analyze/{symbol}")
 async def analyze(symbol: str):
@@ -36,8 +47,3 @@ async def analyze(symbol: str):
     except Exception as e:
         logger.error(f"Error analyzing {symbol}: {str(e)}")
         raise HTTPException(status_code=500, detail="Analysis failed")
-
-@app.get("/health")
-async def health():
-    """Health check endpoint."""
-    return {"status": "healthy"}
