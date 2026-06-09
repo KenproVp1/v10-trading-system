@@ -1,0 +1,117 @@
+# V10 Trading Profit System - GitHub Push Instructions
+
+## Your Repository is Ready!
+
+All files have been committed locally. Now push to GitHub:
+
+## Step 1: Create GitHub Repository
+
+1. Go to https://github.com/new
+2. Repository name: `v10-trading-system`
+3. Description: "AI-powered trading signals for Vietnamese stocks"
+4. Choose: Public (recommended for portfolio)
+5. Click "Create repository"
+
+## Step 2: Connect & Push to GitHub
+
+Copy the commands from GitHub after creating the repo. It will look like:
+
+```bash
+git remote add origin https://github.com/YOUR_USERNAME/v10-trading-system.git
+git branch -M main
+git push -u origin main
+```
+
+Paste these commands in your terminal/PowerShell.
+
+## Current Git Status
+
+Repository initialized: YES
+Files committed: 16 files
+Ready to push: YES
+
+## After Pushing (Auto-Deploy Options)
+
+### Railway (Easiest - Recommended)
+- Go to https://railway.app
+- Click "New Project" → "Deploy from GitHub"
+- Select your repo
+- Auto-deploys on every push
+- Get live URL in 2 minutes
+
+### Render
+- Go to https://render.com
+- Create new Web Service from GitHub
+- Configure start command
+- Deploy
+
+### Your Own Server (VPS)
+```bash
+git clone https://github.com/YOUR_USERNAME/v10-trading-system.git
+cd v10-trading-system
+docker-compose up -d
+```
+
+## Files Included
+
+✅ Source Code
+  - api.py (FastAPI backend)
+  - dashboard.py (Streamlit frontend)
+  - model.py (ML predictions)
+  - alert.py (Alert system)
+
+✅ Configuration
+  - requirements.txt (Dependencies)
+  - Dockerfile (Container image)
+  - docker-compose.yml (Multi-container setup)
+  - Procfile (Heroku deployment)
+  - deploy.sh (Linux deployment script)
+
+✅ Documentation
+  - README.md (Main documentation)
+  - DEPLOYMENT_GUIDE.md (Step-by-step deploy)
+  - SETUP_GUIDE.txt (Local setup)
+
+✅ Development
+  - run_api.bat (Windows API launcher)
+  - run_dashboard.bat (Windows Dashboard launcher)
+  - .gitignore (Git ignore rules)
+
+## Next: Deploy Live!
+
+After pushing to GitHub, choose your platform:
+
+1. **Railway** (Best for quick deployment)
+   - Easiest setup
+   - Auto-scales
+   - $5-20/month for production
+
+2. **Render** (Good free tier)
+   - 750 hours/month free
+   - Auto-deploys on push
+   - Generous for testing
+
+3. **Your VPS** (Most control)
+   - Cheapest long-term
+   - Full customization
+   - $5+/month on DigitalOcean/Linode
+
+## Commands Summary
+
+```bash
+# Check current status
+git status
+git log --oneline
+
+# If you haven't pushed yet
+git remote add origin https://github.com/YOUR_USERNAME/v10-trading-system.git
+git branch -M main
+git push -u origin main
+
+# After making changes
+git add .
+git commit -m "Your message"
+git push origin main
+```
+
+That's it! Your trading system is ready for production!
