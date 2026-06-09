@@ -1,0 +1,90 @@
+V10 TRADING PROFIT SYSTEM - COMPLETE SETUP GUIDE
+
+=== PROBLEM SOLVED ===
+Error: 'streamlit' is not recognized
+Solution: The Scripts folder is not in Windows PATH. Use 'python -m' instead.
+
+=== QUICK START (RECOMMENDED) ===
+
+Option 1: Using batch files (Easiest for Windows)
+1. Double-click: run_api.bat (Terminal 1)
+2. Double-click: run_dashboard.bat (Terminal 2)
+3. Dashboard opens at: http://127.0.0.1:8501
+
+Option 2: Manual commands
+Terminal 1 (API):
+  python -m uvicorn api:app --reload
+
+Terminal 2 (Dashboard):
+  python -m streamlit run dashboard.py
+
+=== INSTALLATION ===
+
+1. Verify Python is installed:
+   python --version
+
+2. Install all dependencies:
+   pip install fastapi uvicorn streamlit pandas scikit-learn requests
+
+3. Verify installations:
+   python -m uvicorn --version
+   python -m streamlit --version
+
+=== TESTING ===
+
+API Tests:
+- Health check: http://127.0.0.1:8000/health
+- Analyze FPT: http://127.0.0.1:8000/analyze/FPT
+- Analyze VNM: http://127.0.0.1:8000/analyze/VNM
+
+Dashboard:
+- Access at: http://127.0.0.1:8501
+
+=== TRADING SIGNALS ===
+
+Signal meanings:
+- BUY (Score > 0.8): Strong buy signal - consider entering
+- WATCH (Score 0.6-0.8): Monitor - neutral position
+- SELL (Score < 0.6): Exit signal - consider closing
+
+=== PORT DETAILS ===
+
+API: http://127.0.0.1:8000
+API Docs: http://127.0.0.1:8000/docs (Swagger interactive docs)
+Dashboard: http://127.0.0.1:8501
+
+=== TROUBLESHOOTING ===
+
+Problem: "Cannot connect to API from dashboard"
+Solution: Make sure API is running in Terminal 1 first
+
+Problem: "Port already in use"
+Solution: Change port in command:
+  python -m uvicorn api:app --port 8001
+
+Problem: Module not found (ImportError)
+Solution: Reinstall requirements:
+  pip install --upgrade fastapi uvicorn streamlit pandas scikit-learn requests
+
+=== FILE STRUCTURE ===
+
+api.py           - FastAPI backend (port 8000)
+dashboard.py     - Streamlit frontend (port 8501)
+model.py         - ML prediction model
+alert.py         - Alert system
+run_api.bat      - Batch file to start API
+run_dashboard.bat - Batch file to start dashboard
+
+=== NEXT STEPS ===
+
+1. Replace random predictions with real ML model
+2. Add database for historical trading data
+3. Implement real-time stock price fetching
+4. Add more Vietnamese stocks (VNM, SAB, etc.)
+5. Deploy to cloud (Heroku, AWS, DigitalOcean)
+6. Add user authentication and trading journal
+
+=== SUPPORT ===
+
+For issues or questions about the trading system, 
+review the code comments and API documentation at: http://127.0.0.1:8000/docs
